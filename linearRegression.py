@@ -7,7 +7,8 @@ import pickle
 import  os
 
 #implementing the linear regression algorithm to predict students final grade based on a series of attributes.
-#This data set consists of 33 attributes for each student. https://archive.ics.uci.edu/
+#This data set consists of 33 attributes for each student and is is available here: 
+#https://archive.ics.uci.edu/ml/datasets/Student+Performance
 
 loc_dir = os.path.dirname(__file__)
 #the separator default is "," but in this Dataset the separator is ";" thats why we have to determine sep=";
@@ -70,11 +71,11 @@ for _ in range(50):
 
     if acc > best_acc:
         best_acc = acc
-        with open(loc_dir + "/Data/studentgrades.pickle", "wb") as f:
+        with open(loc_dir + "/studentgrades.pickle", "wb") as f:
             pickle.dump(model, f)
 
 #Load model 
-pickle_in = open(loc_dir + "/Data/studentgrades.pickle", "rb")
+pickle_in = open(loc_dir + "/studentgrades.pickle", "rb")
 model = pickle.load(pickle_in)
 
 
